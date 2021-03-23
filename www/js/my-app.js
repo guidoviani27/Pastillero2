@@ -119,6 +119,13 @@ $$(document).on('deviceready', function() {
   }
 
   navigator.geolocation.getCurrentPosition(onSuccessGPS, onErrorGPS);
+
+
+                      
+
+
+          
+                
    
 
 });
@@ -227,18 +234,24 @@ $$("#elimino").on('click',function () {
     querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         console.log(doc.id, " => ", doc.data());
+        pastillas = doc.id;
         
-        $$('#NotifiMedi').append('<div class="colornoti"> Medicamento ' + doc.data().tipomedicamento + '<br> Unidad ' + doc.data().unity + '<br> Existencia ' + doc.data().dosis + '<br><button class="col button button-fill button-round" id="'+pastillas+'"> Eliminar </button></div>');
+        $$('#NotifiMedi').append('<div class="colornoti"> Medicamento ' + doc.data().tipomedicamento 
+        + '<br> Unidad ' + doc.data().unity + '<br> Existencia ' + doc.data().dosis 
+        + '<br><button class="col button button-fill button-round botones btnborrar" id="'+pastillas+'"> Eliminar </button></div>');
        
         //$$('#NotiMedico').append('<div> Nombre' + doc.data().nombre + '<br> Especialidad ' + doc.data().especialidad + '<br> Consultorio' + doc.data().consultorio + '<br><button class="col button button-fill button-round" id="'+nombremedico+'"> EliminarB </button></div>');
     });    
        
     
-    $$("#" + pastillas).on('click',function () {
-      console.log("eliminar");
+    $$('.btnborrar').on('click',function () {
+     /*  var borraid = $$('.btnborrar').val();
+      console.log(borraid); */
+      console.log(this.id)
   
-      colMedico.doc(pastillas).delete().then(() => {
+      colMedicamentos.doc(this.id).delete().then(() => {
         console.log("Document successfully deleted!");
+        
     }).catch((error) => {
         console.error("Error removing document: ", error);
     });
@@ -399,7 +412,9 @@ colMedico.get().then((querySnapshot) => {
         console.log(doc.id, " => ", doc.data());
         
   
-        $$('#NotiMedico').append('<div class="colornoti"> Nombre' + doc.data().nombre + '<br> Especialidad ' + doc.data().especialidad + '<br> Consultorio' + doc.data().consultorio + '<br><button class="col button button-fill button-round" id="'+nombremedico+'"> EliminarB </button></div>');
+        $$('#NotiMedico').append('<div class="colornoti"> Nombre' + doc.data().nombre +
+         '<br> Especialidad ' + doc.data().especialidad + '<br> Consultorio' + doc.data().consultorio 
+         + '<br><button class="col button button-fill button-round botones" id="'+nombremedico+'"> EliminarB </button></div>');
     });    
        
     
@@ -425,7 +440,9 @@ colMedico.get().then((querySnapshot) => {
         console.log(doc.id, " => ", doc.data());
         
   
-        $$('#NotiCita').append('<div class="colornoti"> Lugar' + doc.data().lugar + '<br> Hora' + doc.data().hora + '<br> Dia' + doc.data().dia + '<br><button class="col button button-fill button-round" id="'+notacita+'"> Eliminar </button></div>');
+        $$('#NotiCita').append('<div class="colornoti"> Lugar' + doc.data().lugar
+         + '<br> Hora' + doc.data().hora + '<br> Dia' + doc.data().dia 
+         + '<br><button class="col button button-fill button-round botones" id="'+notacita+'"> Eliminar </button></div>');
     });
   
        
@@ -669,10 +686,10 @@ $$(document).on('page:init', '.page[data-name="farmacia"]', function (e) {
     var errorMessage = error.message;
     if (errorCode == 'auth/weak-password') {
 
-    alert('Clave muy débil.');
+    aapp.dialog.alert('Clave muy débil.');
     } else {
 
-    alert(errorMessage);
+    app.dialog.alert(errorMessage);
 
     }
     console.log(error);
@@ -716,7 +733,7 @@ function fnLogin(){
     var errorCode = error.code;
     var errorMessage = error.message;
     console.log(errorCode + errorMessage)
-    alert(errorCode + errorMessage);
+    app.dialog.alert(errorCode + errorMessage);
 
 
     
@@ -728,9 +745,9 @@ function fnCerrarSesion(){
 
   mainView.router.navigate('/index/');
   firebase.auth().signOut().then(() => {
-    alert("Se ha cerrado la sesion")
+    app.dialog.alert("Se ha cerrado la sesion")
   }).catch((error) => {
-    alert(error);
+    app.dialog.alert(error);
   });
 
 }

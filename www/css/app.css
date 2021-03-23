@@ -81,7 +81,7 @@
 
 
 * {
-	font-family: 'Poppins', Arial, sans-serif;
+	font-family: 'Poppins', Arial, sans-serif; 
 }
 
 
@@ -106,12 +106,32 @@
 
 
 .colornoti{
-  text-align: center;
+  text-align: left;
   justify-content: center;
   align-items: center;
   border: 5px solid rgb(0, 150, 136);
   border-radius: 10px;
   margin: 10px;
-  background-color:#006d63;
+  padding: 10px;
+  background-color:#b0d6d2;
   
+}
+
+.H_imprint{
+
+  display:none;
+  visibility: none;
+}
+
+
+
+.botones{
+margin: 0px 0px 0px 160px;
+width: 50%;
+  
+}
+
+.botonesañadir{
+  width: 50%;
+  margin-left: 45%;
 }
