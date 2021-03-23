@@ -1,0 +1,183 @@
+<!-- We don't need a full layout in this file because this page will be parsed with Ajax.  -->
+<div class="page" data-name="agmedic">
+   
+  <div class="navbar">
+    <div class="navbar-inner sliding">
+    <div class="left">
+        <a id="volver" class="link">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+        </a>
+    </div>
+    <div class="title right">Añadir Medicación</div>
+    </div>
+</div>
+
+        
+
+        <div class="page-content">
+            <div class="block">
+                <h2>Añadir Medicación</h2>
+
+                
+                <div class="list">
+
+                    <ul>
+
+                      <li class="item-content item-input">                                
+                        <div class="item-inner">
+                          <div class="item-title item-label">Nombre de Medicamento:</div>
+                          <div class="item-input-wrap">
+                            <input type="text" name="nombre" id="nomMedicamento">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </li>
+
+                      <li class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-title item-label">Unidad</div>
+                          <div class="item-input-wrap input-dropdown-wrap">
+                            <select placeholder="Please choose..." id="Unidad">
+                              <option value="Comprimido">Comprimido(s)</option>
+                              <option value="Cucharada">Cucharada(s)</option>
+                            </select>
+                          </div>
+                        </div>
+                      </li>
+
+
+                      <li class="accordion-item"><a class="item-content item-link" href="#">
+                        <div class="item-inner">
+                          <div class="item-title">Duración</div>
+                        </div>
+                      </a>
+                      <div class="accordion-item-content">
+                        <div class="block">                                            
+                                              
+                          <div class="block-title">Seleccione el día</div>
+                          <div class="list no-hairlines-md">
+                            <ul>
+                              <li>
+                               <div class="item-content item-input">
+                                 <div class="item-inner">
+                                    <div class="item-input-wrap">
+                                      <input type="text" placeholder="Select date and time"  id="demo-calendar-default"/>                                   
+                                    </div>
+                                 </div>
+                              </div>
+                             </li>
+                            </ul>
+                         </div>
+
+                         <div class="block-title">Seleccione la hora</div>
+                         <div class="list no-margin">
+                           <ul>
+                            <li>
+                              <div class="item-content item-input">
+                                 <div class="item-inner">
+                                  <div class="item-input-wrap">
+             <input type="text" placeholder="Date Time" readonly="readonly" id="demo-picker-date"/>
+                                   </div>
+                                 </div>
+                               </div>
+                             </li>
+                          </ul>
+                         </div>
+                         <div class="block block-strong no-padding no-margin margin-bottom">
+                          <div id="demo-picker-date-container"></div>
+                         </div>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li class="accordion-item"><a class="item-content item-link" href="#">
+                        <div class="item-inner">
+                          <div class="item-title">Frecuencia de la toma</div>
+                        </div>
+                      </a>
+                      <div class="accordion-item-content">
+                        <div class="block">
+                            <div class="block accordion-list custom-accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-item-toggle">
+                                  <i class="icon icon-plus">+</i>
+                                  <i class="icon icon-minus">-</i>
+                                  <span>Diariamente X cantidad al día</span>
+                                </div>
+                                <div class="accordion-item-content">
+                                  <p>Fecha hora agregar</p>
+                                  </div>
+                              </div>
+                              <div class="accordion-item">
+                                <div class="accordion-item-toggle">
+                                  <i class="icon icon-plus">+</i>
+                                  <i class="icon icon-minus">-</i>
+                                  <span>Cada X días</span>
+                                </div>
+                                <div class="accordion-item-content">
+                                  <p>dia si 3 no 1 si 3 no</p>
+                                </div>
+                              </div>
+                              <div class="accordion-item">
+                                <div class="accordion-item-toggle">
+                                  <i class="icon icon-plus">+</i>
+                                  <i class="icon icon-minus">-</i>
+                                  <span>Días especificos de la semana</span>
+                                </div>
+                                <div class="accordion-item-content">
+                                  <p>Elegir que días de la semana tomar.</p>
+                                </div>
+                              </div>
+                              <div class="accordion-item">
+                                <div class="accordion-item-toggle">
+                                  <i class="icon icon-plus">+</i>
+                                  <i class="icon icon-minus">-</i>
+                                  <span>Ciclio</span>
+                                </div>
+                                <div class="accordion-item-content">
+                                  <p>cuantos días si, cuantos no y en que día del ciclo estamos.</p>
+                                </div>
+                              </div>
+                              </div>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li class="accordion-item"><a class="item-content item-link" href="#">
+                        <div class="item-inner">
+                          <div class="item-title">Existencia</div>
+                        </div>
+                      </a>
+                      <div class="accordion-item-content">
+                        <div class="block">
+                          <div class="item-title item-label">Cuantas dosis</div>
+                          <div class="item-input-wrap">
+                            <input type="number" name="nombre" id="existencia">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+
+                      
+
+
+                    </ul>
+                    </div>
+
+
+     <!-- agregar notis locales -->
+
+     <button class="col button button-fill button-round" id="btnGuardarYo">Guardar</button>
+     
+   
+       
+    </div>
+
+    
+
+</div>
+
+
+    
