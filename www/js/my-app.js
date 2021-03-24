@@ -410,18 +410,19 @@ colMedico.get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         console.log(doc.id, " => ", doc.data());
+        nombremedico = doc.id;
         
   
         $$('#NotiMedico').append('<div class="colornoti"> Nombre' + doc.data().nombre +
          '<br> Especialidad ' + doc.data().especialidad + '<br> Consultorio' + doc.data().consultorio 
-         + '<br><button class="col button button-fill button-round botones" id="'+nombremedico+'"> EliminarB </button></div>');
+         + '<br><button class="col button button-fill button-round botones btnborraruno" id="'+nombremedico+'"> EliminarB </button></div>');
     });    
        
     
-    $$("#" + nombremedico).on('click',function () {
-      console.log("eliminar");
+    $$(".btnborraruno").on('click',function () {
+      console.log(this.id)
   
-      colMedico.doc(nombremedico).delete().then(() => {
+      colMedico.doc(this.id).delete().then(() => {
         console.log("Document successfully deleted!");
     }).catch((error) => {
         console.error("Error removing document: ", error);
@@ -438,19 +439,20 @@ colMedico.get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         console.log(doc.id, " => ", doc.data());
+        notacita = doc.id
         
   
         $$('#NotiCita').append('<div class="colornoti"> Lugar' + doc.data().lugar
          + '<br> Hora' + doc.data().hora + '<br> Dia' + doc.data().dia 
-         + '<br><button class="col button button-fill button-round botones" id="'+notacita+'"> Eliminar </button></div>');
+         + '<br><button class="col button button-fill button-round botones btnborrardos" id="'+notacita+'"> Eliminar </button></div>');
     });
   
        
     
-    $$("#" + notacita).on('click',function () {
-      console.log("eliminar");
+    $$(".btnborrardos").on('click',function () {
+      console.log(this.id)
   
-      colCitaMedica.doc(notacita).delete().then(() => {
+      colCitaMedica.doc(this.id).delete().then(() => {
         console.log("Document successfully deleted!");
     }).catch((error) => {
         console.error("Error removing document: ", error);
@@ -686,7 +688,7 @@ $$(document).on('page:init', '.page[data-name="farmacia"]', function (e) {
     var errorMessage = error.message;
     if (errorCode == 'auth/weak-password') {
 
-    aapp.dialog.alert('Clave muy débil.');
+    app.dialog.alert('Clave muy débil.');
     } else {
 
     app.dialog.alert(errorMessage);
