@@ -88,7 +88,7 @@ var longitud;
 $$(document).on('deviceready', function() {
     console.log("Device is ready!");
     platform = new H.service.Platform({
-      'apikey': 'oy2ziTZV6Hjjou_gEUrdW56mWR9hGlRNK9cfcN7iwSE'
+      'apikey': 'qmf9kw11P-hbQlQmnJhJLFKzoMrAmMQ0-Za9_KqXFXE'
      });
 
       // onSuccessGPS Callback
@@ -647,13 +647,27 @@ $$(document).on('page:init', '.page[data-name="farmacia"]', function (e) {
 
       
     behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+    var circle = new H.map.Circle(
+      new H.geo.Point(latitud, longitud), //center
+      600, // Radius in meters
+      { style: {
+          fillColor: 'rgba(0, 150, 136, 0.3)',
+          lineWidth: 3,
+          strokeColor: 'rgba(110, 0, 255, 1)'
+      } }
+  );
+
+  map.addObject(circle);
+
+
  
 
 
 
   
 
- 
+  window.addEventListener('resize', () => map.getViewPort().resize());
   
 })
 
